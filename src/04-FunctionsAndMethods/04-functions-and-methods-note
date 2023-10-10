@@ -1,0 +1,3 @@
+## 생성 방법
+function greet() {}
+const greet = () => {} // arrow function
