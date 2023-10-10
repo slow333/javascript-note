@@ -13,4 +13,6 @@ let user = {
   }
 
 primitive types : number, string, boolean, null, undefined, symbol
+  => 값 자체를 참조함(원본을 값을 변경하면 해당되는 값만 변경됨
 reference types: objects, object literals, arrays, function, date, all other objects
+  => 참조 주소(heap mem)를 참조함(원본을 변경하면 참조하는 모든 값이 변경됨)
