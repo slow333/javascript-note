@@ -194,7 +194,7 @@ export default function Script() {
 }
 */
 const books = getBooks();
-books;
+/* books;
 const titles = books.map((b) => b.title);
 titles;
 const getTotalReviewCount = (book) => {
@@ -202,13 +202,14 @@ const getTotalReviewCount = (book) => {
   const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
   return goodreads + librarything;
 };
-/* const essentialData = books.map((b) => {
+const essentialData = books.map((b) => {
   return {
     title: b.title,
     author: b.author,
   };
-}); */
-const esData = books.map((book) => ({
+}); 
+ */
+/*const esData = books.map((book) => ({
   title: book.title,
   author: book.author,
   reviewsCount: getTotalReviewCount(book),
@@ -224,3 +225,56 @@ const adventureBooks = books
 adventureBooks;
 const totalPages = books.reduce((acc, book) => acc + book.pages, 0);
 totalPages;
+
+const x = [2, 4, 9, 66, 6, 1];
+const y = ["abc", "cod", "Zos", "abcd", "한글", "기억"];
+const sortedX = x.sort((a, b) => b - a);
+const newSortedX = x.slice().sort((a, b) => a - b); // slice하면 새로 만듦
+
+const sortedY = y.sort((a, b) => {
+  const alower = a.toLocaleLowerCase();
+  const blower = b.toLocaleLowerCase();
+  return alower > blower ? 1 : alower < blower ? -1 : 0;
+});
+sortedY;
+sortedX;
+newSortedX;
+x;
+// 1) add book
+const sortedByPages = books
+  .slice()
+  .sort((a, b) => b.pages - a.pages)
+  .map((b) => b.id);
+sortedByPages;
+const newBook = {
+  id: 7,
+  title: "나의 조국",
+  author: "김 동 용",
+};
+const booksAfterAdd = [...books, newBook];
+booksAfterAdd;
+// 2) delete book;
+const booksAfterDelete = booksAfterAdd.filter((book) => book.id !== 3);
+booksAfterDelete;
+// 3) update book ;
+const booksAfterUpdate = booksAfterDelete.map((book) =>
+  book.id === 1 ? { ...book, pages: 1234 } : book
+);
+booksAfterUpdate;
+*/
+
+// fetch("https://jsonplaceholder.typicode.com/todos")
+//   .then((res) => res.json())
+//   .then((data) => console.log(data));
+
+// console.log("끝나야 나오는 값입니다.");
+
+async function getTodos() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos");
+  const data = await res.json();
+  console.log(data);
+  return data;
+}
+const todos = getTodos();
+console.log(todos);
+console.log("끝나야 나오는 값입니다.");
